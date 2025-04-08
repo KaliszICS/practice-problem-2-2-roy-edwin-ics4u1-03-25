@@ -2,75 +2,66 @@ import java.util.Arrays;
 
 public class PracticeProblem {
 
-    public static void main(String[] args) {
-        int[] intArray = {5, 3, 8, 1, 2};
-        int[] intSearchResult = compareSearch(intArray, 3);
-        System.out.println("Integer Search Loops: Sequential = " + intSearchResult[0] + ", Binary = " + intSearchResult[1]);
+	public static void main(String args[]) {	
+	}
+	
+public static int[] compareSearch(int[] arr, int num) {
+	int seqLoops = 0;
+	for (int i = 0; i < arr.length; i++) {
+	seqLoops++;
+	if (arr[i] == num) {
+	break;
+	}
+}
+	Arrays.sort(arr);
+	int binLoops = 0;
+	int high = arr.length - 1;
+	int low = 0;
+	int mid;
+	while (low <= high) {
+	binLoops++;
+	mid = (low + high) / 2;
+	if (arr[mid] == num) {
+    break;
+		} else if (arr[mid] < num) {
+			low = mid + 1;
+		} else {
+			high = mid - 1;
+		}
+	}
 
-        String[] strArray = {"banana", "apple", "cherry", "date"};
-        int[] strSearchResult = compareStringSearch(strArray, "cherry");
-        System.out.println("String Search Loops: Sequential = " + strSearchResult[0] + ", Binary = " + strSearchResult[1]);
-    }
+return new int[]{seqLoops, binLoops};
+}
 
-    public static int[] compareSearch(int[] numArray, int num) {
-        int loops = 0;
-        int loops2 = 0;
-        Arrays.sort(numArray);
-        for (int i = 0; i < numArray.length; i++) {
-            loops++;
-            if (numArray[i] == num) {
-                break;
-            }
-        }
+public static int[] compareStringSearch(String[] arr, String words) {
+		
+    int seqLoops = 0;
+	for (int i = 0; i < arr.length; i++) {
+	seqLoops++;
+	if (arr[i].equals(words)) {
+	break;
+	}
+}
 
-        int low = 0;
-        int high = numArray.length - 1;
-        int mid;
+	Arrays.sort(arr);
+	int binLoops = 0;
+	int low = 0;
+	int high = arr.length - 1;
+	int mid;
 
-        while (low <= high) {
-            mid = (low + high) / 2;
-            loops2++;
-            if (numArray[mid] < num) {
-                low = mid + 1;
-            } else if (numArray[mid] > num) {
-                high = mid - 1;
-            } else {
-                break; 
-            }
-        }
+	while (low <= high) {
+	binLoops++;
+	mid = low + (high - low) / 2;
+	int comparison = arr[mid].compareTo(words);
 
-        int[] stringArray = {loops, loops2}; 
-        return stringArray;
-    }
-
-    public static int[] compareStringSearch(String[] strArray, String searchText) {
-        int loops = 0;
-        int loops2 = 0;
-        Arrays.sort(strArray);
-        for (int i = 0; i < strArray.length; i++) {
-            loops++;
-            if (strArray[i].equals(searchText)) {
-                break;
-            }
-        }
-        int low = 0;
-        int high = strArray.length - 1;
-        int mid;
-
-        while (low <= high) {
-            mid = (low + high) / 2;
-            loops2++;
-            int comparison = strArray[mid].compareTo(searchText);
-            if (comparison < 0) {
-                low = mid + 1;
-            } else if (comparison > 0) {
-                high = mid - 1;
-            } else {
-                break; 
-            }
-        }
-
-        int[] stringArray = {loops, loops2}; 
-        return stringArray;
-    }
+	if (comparison == 0) {
+		break;
+	} else if (comparison < 0) {
+		low = mid + 1;
+	} else {
+		high = mid - 1;
+	}
+}
+return new int[]{seqLoops, binLoops};
+	}
 }
