@@ -1,29 +1,26 @@
 import java.util.Arrays;
 
 public class PracticeProblem {
-
-	public static void main(String args[]) {	
-	}
 	
-public static int[] compareSearch(int[] arr, int num) {
+public static int[] compareSearch(int[] array, int number) {
 	int seqLoops = 0;
-	for (int i = 0; i < arr.length; i++) {
+	for (int i = 0; i < array.length; i++) {
 	seqLoops++;
-	if (arr[i] == num) {
+	if (array[i] == number) {
 	break;
 	}
 }
-	Arrays.sort(arr);
+	Arrays.sort(array);
 	int binLoops = 0;
-	int high = arr.length - 1;
+	int high = array.length - 1;
 	int low = 0;
 	int mid;
 	while (low <= high) {
 	binLoops++;
 	mid = (low + high) / 2;
-	if (arr[mid] == num) {
+	if (array[mid] == number) {
     break;
-		} else if (arr[mid] < num) {
+		} else if (array[mid] < number) {
 			low = mid + 1;
 		} else {
 			high = mid - 1;
@@ -33,26 +30,26 @@ public static int[] compareSearch(int[] arr, int num) {
 return new int[]{seqLoops, binLoops};
 }
 
-public static int[] compareStringSearch(String[] arr, String words) {
+public static int[] compareStringSearch(String[] array, String word) {
 		
     int seqLoops = 0;
-	for (int i = 0; i < arr.length; i++) {
+	for (int i = 0; i < array.length; i++) {
 	seqLoops++;
-	if (arr[i].equals(words)) {
+	if (array[i].equals(word)) {
 	break;
 	}
 }
 
-	Arrays.sort(arr);
+	Arrays.sort(array);
 	int binLoops = 0;
 	int low = 0;
-	int high = arr.length - 1;
+	int high = array.length - 1;
 	int mid;
 
 	while (low <= high) {
 	binLoops++;
 	mid = low + (high - low) / 2;
-	int comparison = arr[mid].compareTo(words);
+	int comparison = array[mid].compareTo(word);
 
 	if (comparison == 0) {
 		break;
