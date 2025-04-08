@@ -9,7 +9,7 @@ class Notes {
 		int num = 234; // number we're looking for
 		int index = -1;
 
-		Arrays.sort(numArray);
+		//Arrays.sort(numArray);
 
 		for (int i = 0; i < numArray.length; i++) {
 			System.out.print(numArray[i] + " ");
