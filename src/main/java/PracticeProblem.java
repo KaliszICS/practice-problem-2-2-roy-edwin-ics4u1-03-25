@@ -3,7 +3,6 @@ import java.util.Arrays;
 public class PracticeProblem {
 
     public static void main(String[] args) {
-        // Example usage
         int[] intArray = {5, 3, 8, 1, 2};
         int[] intSearchResult = compareSearch(intArray, 3);
         System.out.println("Integer Search Loops: Sequential = " + intSearchResult[0] + ", Binary = " + intSearchResult[1]);
@@ -17,8 +16,6 @@ public class PracticeProblem {
         int loops = 0;
         int loops2 = 0;
         Arrays.sort(numArray);
-
-        // Sequential search
         for (int i = 0; i < numArray.length; i++) {
             loops++;
             if (numArray[i] == num) {
@@ -26,7 +23,6 @@ public class PracticeProblem {
             }
         }
 
-        // Binary search
         int low = 0;
         int high = numArray.length - 1;
         int mid;
@@ -39,11 +35,11 @@ public class PracticeProblem {
             } else if (numArray[mid] > num) {
                 high = mid - 1;
             } else {
-                break; // Found the num
+                break; 
             }
         }
 
-        int[] stringArray = {loops, loops2}; // Changed to stringArray
+        int[] stringArray = {loops, loops2}; 
         return stringArray;
     }
 
@@ -51,16 +47,12 @@ public class PracticeProblem {
         int loops = 0;
         int loops2 = 0;
         Arrays.sort(strArray);
-
-        // Sequential search
         for (int i = 0; i < strArray.length; i++) {
             loops++;
             if (strArray[i].equals(searchText)) {
                 break;
             }
         }
-
-        // Binary search
         int low = 0;
         int high = strArray.length - 1;
         int mid;
@@ -74,11 +66,11 @@ public class PracticeProblem {
             } else if (comparison > 0) {
                 high = mid - 1;
             } else {
-                break; // Found the searchText
+                break; 
             }
         }
 
-        int[] stringArray = {loops, loops2}; // Changed to stringArray
+        int[] stringArray = {loops, loops2}; 
         return stringArray;
     }
 }
